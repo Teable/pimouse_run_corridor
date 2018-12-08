@@ -3,7 +3,7 @@ import unittest, rostest
 import rosnode, rospy
 import time
 
-class WallStopAccelTest(unittest.TestCase):
+class WallTraceTest(unittest.TestCase):
 	def set_and_get(self,lf,ls,rs,rf):
 		with open("/dev/rtlightsensor0","w") as f:
 			f.write("%d %d %d %d\n" % (rf,rs,ls,lf))
@@ -35,5 +35,5 @@ class WallStopAccelTest(unittest.TestCase):
 
 if __name__ == '__main__':
 	time.sleep(3)
-	rospy.init_node('travis_test_wall_stop_accel')
-	rostest.rosrun('pimouse_run_corridor','travis_test_wall_stop_accel',WallStopAccelTest)
+	rospy.init_node('travis_test_wall_trace')
+	rostest.rosrun('pimouse_run_corridor','travis_test_wall_trace',WallTraceTest)
