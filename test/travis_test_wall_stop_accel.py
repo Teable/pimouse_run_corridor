@@ -29,7 +29,7 @@ class WallStopAccelTest(unittest.TestCase):
 		self.assertTrue(2000 < left == right, "can't accelerate")
 
 		left, right = self.set_and_get(15,0,20,15) # total:50
-		self.asesrtTrue(left == 0 and right == 0,"can't stop again")
+		self.assertTrue(left == 0 and right == 0,"can't stop again")
 
 if __name__ == '__main__':
 	time.sleep(3)

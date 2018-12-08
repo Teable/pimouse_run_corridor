@@ -4,6 +4,11 @@ import rosnode, rospy
 import time
 
 class WallStopTest(unittest.TestCase):
+	def test_node_exist(self):
+		nodes = rosnode.get_node_names()
+		self.assertIn('/lightsensors', nodes, "lightsensors node does not exist")
+		self.assertIn('/motors', nodes, "motors node does not exist")
+
 	def set_and_get(self,lf,ls,rs,rf):
 		with open("/dev/rtlightsensor0","w") as f:
 			f.write("%d %d %d %d\n" % (rf,rs,ls,lf))
@@ -25,7 +30,7 @@ class WallStopTest(unittest.TestCase):
 		self.assertTrue(left != 0 and right != 0,"can't move again")
 
 		left, right = self.set_and_get(150,0,200,150) # total:500
-		self.asesrtTrue(left == 0 and right == 0,"can't stop")
+		self.assertTrue(left == 0 and right == 0,"can't stop")
 
 if __name__ == '__main__':
 	time.sleep(3)
