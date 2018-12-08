@@ -14,13 +14,13 @@ class WallAround():
 	def callback(self,messages):
 		self.sensor_values = messages
 
-	def wall_front(self,light_sensor)
-		return light_sensor.left_forward > 50 or ls.right_forward > 50
+	def wall_front(self,light_sensor):
+		return light_sensor.left_forward > 50 or light_sensor.right_forward > 50
 
-	def too_right(self,light_sensor)
+	def too_right(self,light_sensor):
 		return light_sensor.right_side > 50
 
-	def too_left(self,light_sensor)
+	def too_left(self,light_sensor):
 		return light_sensor.left_side > 50
 
 	def run(self):
